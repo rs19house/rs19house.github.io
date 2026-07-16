@@ -2,72 +2,509 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>RS19 House</title>
+    <meta name="description" content="RS19 House is a fragrance, character, storytelling, animation, and experiential-branding company founded by Shabazz L.A.B.S. LLC.">
+
+    <title>RS19 House | The House Is Open</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            padding: 40px 20px;
-            background-color: #111111;
+            background-color: #0b0b0b;
             color: #ffffff;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-        }
-
-        h2 {
-            font-size: 24px;
-            font-weight: normal;
-            margin-bottom: 30px;
-        }
-
-        p {
-            max-width: 700px;
-            margin: 0 auto 20px;
-            font-size: 18px;
+            font-family: Arial, Helvetica, sans-serif;
             line-height: 1.6;
         }
 
-        a {
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.95);
+            border-bottom: 1px solid #333333;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .brand {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            min-height: 88vh;
+            padding: 100px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.92)),
+                radial-gradient(circle at center, #3a2416 0%, #111111 55%, #000000 100%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            margin: 0 0 18px;
+            font-size: clamp(48px, 10vw, 100px);
+            line-height: 1;
+            letter-spacing: 4px;
+        }
+
+        .hero h2 {
+            margin: 0 0 24px;
+            font-size: clamp(24px, 4vw, 42px);
+            font-weight: normal;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: 0 auto 30px;
+            font-size: 19px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .button {
             display: inline-block;
-            margin-top: 20px;
             padding: 14px 24px;
-            background-color: #ffffff;
-            color: #111111;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 6px;
+            border: 1px solid #ffffff;
+        }
+
+        .button-primary {
+            background-color: #ffffff;
+            color: #111111;
+        }
+
+        .button-secondary {
+            background-color: transparent;
+            color: #ffffff;
+        }
+
+        section {
+            padding: 80px 24px;
+        }
+
+        .section-dark {
+            background-color: #111111;
+        }
+
+        .section-black {
+            background-color: #000000;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-heading h2 {
+            margin: 0 0 12px;
+            font-size: clamp(32px, 5vw, 52px);
+        }
+
+        .section-heading p {
+            max-width: 750px;
+            margin: auto;
+            color: #d0d0d0;
+            font-size: 18px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #181818;
+            border: 1px solid #333333;
+            border-radius: 10px;
+            padding: 28px 22px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 26px;
+        }
+
+        .card p {
+            color: #d5d5d5;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature {
+            border-left: 3px solid #ffffff;
+            padding-left: 18px;
+        }
+
+        .feature h3 {
+            margin-top: 0;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 780px;
+            margin: auto;
+            padding: 40px;
+            background-color: #181818;
+            border: 1px solid #333333;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        footer {
+            padding: 30px 20px;
+            background-color: #000000;
+            border-top: 1px solid #333333;
+            text-align: center;
+            color: #bdbdbd;
+        }
+
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 18px;
+            }
+
+            .hero {
+                padding: 80px 18px;
+            }
+
+            .contact-box {
+                padding: 28px 18px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <h1>RS19 HOUSE</h1>
+<header>
+    <nav>
+        <div class="brand">RS19 HOUSE</div>
 
-    <h2>The House Is Open</h2>
+        <div class="nav-links">
+            <a href="#house">The House</a>
+            <a href="#collection">Fragrances</a>
+            <a href="#experience">Experiences</a>
+            <a href="#partnerships">Partnerships</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+</header>
 
-    <p>
-        RS19 House is a fragrance, character, animation, and experiential-branding company.
-    </p>
+<main>
 
-    <p>
-        Our fragrances preserve identity through scent, story, memory, and motion.
-    </p>
+    <section class="hero" id="house">
+        <div class="hero-content">
+            <div class="eyebrow">Introduction. Identity. Memory.</div>
 
-    <p>
-        The official RS19 fragrance experience is coming soon.
-    </p>
+            <h1>RS19 HOUSE</h1>
 
-    <a href="mailto:rashadshabazz1969@gmail.com">
-        Contact RS19 House
-    </a>
+            <h2>The House Is Open</h2>
+
+            <p>
+                RS19 House is a fragrance, character, storytelling, animation,
+                and experiential-branding company founded through Shabazz L.A.B.S. LLC.
+                We preserve identity through scent, story, memory, and motion.
+            </p>
+
+            <div class="button-group">
+                <a class="button button-primary" href="#collection">
+                    Discover the Fragrances
+                </a>
+
+                <a class="button button-secondary" href="#partnerships">
+                    Host an RS19 Experience
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark" id="collection">
+        <div class="container">
+
+            <div class="section-heading">
+                <h2>The Fragrance Collection</h2>
+
+                <p>
+                    Each RS19 fragrance carries its own identity, presence, and story.
+                    The collection is designed to be experienced, remembered, and shared.
+                </p>
+            </div>
+
+            <div class="grid">
+
+                <article class="card">
+                    <h3>Malik</h3>
+
+                    <p>
+                        A commanding fragrance created to express authority,
+                        confidence, presence, and disciplined strength.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>Nur</h3>
+
+                    <p>
+                        A fragrance inspired by light, clarity, refinement,
+                        elegance, and the power of illumination.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>Sakinah</h3>
+
+                    <p>
+                        A fragrance shaped around peace, balance, warmth,
+                        comfort, and quiet spiritual confidence.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>Qadr</h3>
+
+                    <p>
+                        A fragrance representing destiny, value, purpose,
+                        distinction, and the weight of divine measure.
+                    </p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section-black" id="experience">
+        <div class="container">
+
+            <div class="section-heading">
+                <h2>The RS19 Fragrance Experience</h2>
+
+                <p>
+                    RS19 creates interactive fragrance activations that allow guests
+                    to smell, compare, vote, respond, and become part of the story.
+                </p>
+            </div>
+
+            <div class="feature-grid">
+
+                <div class="feature">
+                    <h3>Smell</h3>
+
+                    <p>
+                        Guests experience a curated collection of RS19 fragrances
+                        through a professionally presented sampling station.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <h3>Vote</h3>
+
+                    <p>
+                        Participants use a mobile survey to rate fragrances,
+                        select favorites, and provide measurable feedback.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <h3>Share</h3>
+
+                    <p>
+                        Participants may submit family-and-friend reaction videos
+                        and help extend the fragrance experience beyond the venue.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark" id="partnerships">
+        <div class="container">
+
+            <div class="section-heading">
+                <h2>Business and Venue Partnerships</h2>
+
+                <p>
+                    RS19 experiences may be designed for retailers, hotels,
+                    resorts, conferences, conventions, receptions, private events,
+                    and customer-appreciation programs.
+                </p>
+            </div>
+
+            <div class="feature-grid">
+
+                <div class="card">
+                    <h3>Retail Activations</h3>
+
+                    <p>
+                        Interactive fragrance sampling, customer voting,
+                        promotional giveaways, and measurable product-interest data.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Hotels and Resorts</h3>
+
+                    <p>
+                        Guest-welcome experiences, branded keepsakes,
+                        VIP amenities, and memorable sensory engagement.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Conventions and Events</h3>
+
+                    <p>
+                        Fragrance stations, sponsor recognition, attendee engagement,
+                        reaction content, and post-event reporting.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="center" style="margin-top: 40px;">
+                <a class="button button-primary"
+                   href="mailto:rashadshabazz1969@gmail.com?subject=RS19%20Partnership%20Inquiry">
+                    Discuss a Partnership
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-black" id="contact">
+        <div class="container">
+
+            <div class="contact-box">
+                <h2>Contact RS19 House</h2>
+
+                <p>
+                    Business, retail, hospitality, convention,
+                    promotional, and fragrance-experience inquiries are welcome.
+                </p>
+
+                <p>
+                    <strong>Rashad Ishmael Shabazz</strong><br>
+                    Founder, Shabazz L.A.B.S. LLC<br>
+                    RS19 House
+                </p>
+
+                <p>
+                    Email:
+                    <a href="mailto:rashadshabazz1969@gmail.com"
+                       style="color: #ffffff;">
+                        rashadshabazz1969@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    Website:
+                    <a href="https://rs19house.com"
+                       style="color: #ffffff;">
+                        rs19house.com
+                    </a>
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    © 2026 RS19 House. A Shabazz L.A.B.S. LLC creation. All rights reserved.
+</footer>
 
 </body>
 </html>
